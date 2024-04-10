@@ -2,11 +2,14 @@
   inherit (inputs.nixpkgs.lib) nixosSystem;
 in {
   flake.nixosConfigurations = {
-    luminara = nixosSystem {
+    Supremacy = nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
-        ./luminara
+        ./Supremacy
         ../modules/nixos
+        {
+          modules.nixos.boot.secure-boot.enable = false;
+        }
         inputs.lanzaboote.nixosModules.lanzaboote
       ];
     };

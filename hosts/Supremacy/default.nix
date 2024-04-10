@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./disko.nix
     ./hardware.nix
   ];
 
@@ -8,19 +9,19 @@
   };
 
   networking = {
-    hostName = "luminara";
+    hostName = "Supremacy";
     networkmanager.enable = true;
   };
 
-  users.users.jh-devv = {
+  users.users.witek = {
     shell = pkgs.zsh;
     isNormalUser = true;
     extraGroups = ["wheel" "docker"];
   };
 
-  time.timeZone = "Europe/Helsinki";
+  time.timeZone = "Europe/Warsaw";
 
-  services.xserver.layout = "fi";
+  services.xserver.xkb.layout = "pl";
 
-  system.stateVersion = "23.05";
+  system.stateVersion = "23.11";
 }

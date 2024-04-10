@@ -43,13 +43,13 @@ in {
             format = " {:%H:%M}";
           };
           "hyprland/window" = {
-            max-length = 48;
+            max-length = 60;
             format = "{}";
           };
           "custom/media" = {
             format = "{icon} <span>{}</span>";
             return-type = "json";
-            max-length = 30;
+            max-length = 60;
             exec = "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{artist}} - {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
             on-click = "playerctl play-pause";
             on-click-middle = "playerctl previous";

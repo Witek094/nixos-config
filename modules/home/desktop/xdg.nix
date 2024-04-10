@@ -5,11 +5,11 @@
 }:
 with lib; let
   cfg = config.modules.home.desktop;
-  browser = "firefox.desktop";
+  browser = "brave.desktop";
   video-player = "mpv.desktop";
   audio-player = "mpv.desktop";
   image-viewer = "mpv.desktop";
-  pdf-viewer = "firefox.desktop";
+  pdf-viewer = "brave.desktop";
   text-editor = "org.gnome.gedit.desktop";
   file-explorer = "org.gnome.Nautilus.desktop";
   zip-manager = "org.gnome.FileRoller.desktop";

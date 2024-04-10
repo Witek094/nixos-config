@@ -1,22 +1,29 @@
 {pkgs, ...}: {
   home = {
-    username = "jh-devv";
-    homeDirectory = "/home/jh-devv";
+    username = "witek";
+    homeDirectory = "/home/witek";
   };
 
   modules.home = {
     desktop = {
       displays = [
         {
+          name = "DP-1";
+          hyprland = "3840x2160@120, 2887x0, 1";
+        }
+        {
           name = "DP-2";
-          workspaces = [1 2 3 4 5 6 7 8 9 10];
+          hyprland = "3840x2160@60, 0x0, 1.33";
         }
       ];
       session = "hyprland";
       flatpak = {
         enable = true;
         groups = ["media"];
-        packages = ["org.prismlauncher.PrismLauncher"];
+        packages = [ "org.prismlauncher.PrismLauncher" "com.discordapp.Discord" "com.valvesoftware.Steam" ];
+        overrides = {
+          "com.valvesoftware.Steam".Context.sockets = ["x11"];
+        };
       };
       power = {
         lockscreen.enable = true;
@@ -30,8 +37,9 @@
   };
 
   home.packages = with pkgs; [
+    btop
     cava
-    firefox-wayland
+    brave
     logseq
     trash-cli
     vscode
@@ -43,5 +51,5 @@
   systemd.user.startServices = "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.05";
+  home.stateVersion = "23.11";
 }
